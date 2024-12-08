@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Felicitaciones por tu Graduación!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0e1011;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #4caf50;
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 10px 20px;
+        }
+        img {
+            width: 500px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+        }
+        .btn {
+            display: block;
+            background-color: #4caf50;
+            color: #0e1011;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .btn:hover {
+            background-color: #a5aa17;
+        }
+        .star {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #ffd700; /* Dorado */
+            animation: sparkle 2s linear forwards;
+            pointer-events: none;
+        }
+        #nombre{
+            font-size: 4rem;
+            color: #ffbf00; /* Color principal del texto */
+            text-align: center;
+            text-shadow: 
+                0 0 5px #0ff,  /* Brillo cercano */
+                0 0 10px #0ff, 
+                0 0 20px #0ff, 
+                0 0 40px #0ff, /* Brillo extendido */
+                0 0 80px #00f, /* Resplandor adicional */
+                0 0 120px #00f; 
+            animation: flicker 1.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #0ff, 
+                    0 0 10px #0ff, 
+                    0 0 20px #0ff, 
+                    0 0 40px #0ff, 
+                    0 0 80px #00f, 
+                    0 0 120px #00f;
+            }
+            50% {
+                text-shadow: 
+                    0 0 3px #0ff, 
+                    0 0 6px #0ff, 
+                    0 0 15px #0ff, 
+                    0 0 30px #00f, 
+                    0 0 60px #00f, 
+                    0 0 90px #00f;
+            }
+        }
+        @keyframes sparkle {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-100px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Felicitaciones por tu Graduación!👩‍🎓👩‍🎓</h1>
+    <h1 id="nombre">MICH OSORIO</h1>
+    <p>Estamos muy orgullosos de ti por este gran logro. Que este sea el inicio de muchos éxitos en tu vida.</p>
+    <img src="graduada.jpg" alt="Graduación">
+    <button class="btn" onclick="showStars()">Celebrar</button>
+
+    <script>
+        function showStars() {
+            const body = document.body;
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.textContent = '✨🥳'; 
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
+                star.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+
+                body.appendChild(star);
+
+                setTimeout(() => {
+                    body.removeChild(star);
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
